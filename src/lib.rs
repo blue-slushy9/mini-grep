@@ -1,4 +1,13 @@
+// 'use' is similar to 'import' in Python or 'using' in C++, brings in modules,
+// functions, etc. from libraries;
+// 'std::env' brings the env module from the std Rust library into the
+// current scope, so that you don't have to write 'std::env' every time;
+// 'env' is a module that provides functions for interacting with the
+// environment of the current process, e.g. getting or setting env variables
 use std::env;
+// 'Error' is an essential trait (which defines a set of methods that a type 
+// can implement) that represents a generic error type;
+
 use std::error::Error;
 use std::fs;
 
