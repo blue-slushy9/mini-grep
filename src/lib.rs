@@ -5,10 +5,11 @@
 // 'env' is a module that provides functions for interacting with the
 // environment of the current process, e.g. getting or setting env variables
 use std::env;
-// 'Error' is an essential trait (which defines a set of methods that a type 
-// can implement) that represents a generic error type;
-
+// 'Error' is an essential trait (these define a set of methods that a type 
+// can implement) from the 'error' module that represents a generic error type;
+// the 'error' module is designed for error handling
 use std::error::Error;
+// 'fs' allows you to interact with files and directories on the OS
 use std::fs;
 
 pub struct Config {
