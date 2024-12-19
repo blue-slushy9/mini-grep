@@ -26,10 +26,17 @@ pub struct Config {
 
 // 'impl' defines methods associated with struct Config
 impl Config {
-    // public function 'build', which takes a slice '&[]' of 'String' as its argument; 
+    // This line is the function signature; public function 'build', 
+    // which takes a slice '&[]' of 'String' as its argument; typically
+    // represents CLI arguments, also '&' means reference as in C/C++;
+    // '-> Result [...] str>' is the return type; 'Result' is an enum used for
+    // error handling, can either be 'Ok(Config)' which is success, or it can
+    // be 'Err(&'static str)' which is failure; 
     pub fn build(args: &[String]) -> Result<Config, &'static str> {
+        // Verify enough arguments are passed based on struct Config definition;
+        // the three arguments are: the program name itself, query, filepath;
         if args.len() < 3 {
-            return Err("Args: query, filepath. Not enough args");
+            return Err("Args: query, filepath. Not enough arguments.");
         }
         let query = &args[1].clone();
         let filepath = &args[2].clone();
