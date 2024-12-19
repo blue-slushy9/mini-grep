@@ -1,5 +1,5 @@
-// 'use' is similar to 'import' in Python or 'using' in C++, brings in modules,
-// functions, etc. from libraries;
+// 'use' is similar to 'import' in Python or 'using' in C++, it brings in 
+// modules, functions, etc. from libraries;
 // 'std::env' brings the env module from the std Rust library into the
 // current scope, so that you don't have to write 'std::env' every time;
 // 'env' is a module that provides functions for interacting with the
@@ -9,16 +9,24 @@ use std::env;
 // can implement) from the 'error' module that represents a generic error type;
 // the 'error' module is designed for error handling
 use std::error::Error;
-// 'fs' allows you to interact with files and directories on the OS
+// 'fs' allows you to interact with files and directories on the OS,
+// e.g. creating, reading, writing
 use std::fs;
-
+// 'pub' means the public visibility modifier, so the struct can be accessed 
+// from other modules or crates; the default vis mod for Rust is private,
+// i.e. it's only accessible within the current module; 
+// 'Config' is just the name of the struct
 pub struct Config {
+    // 'query' is the field, its type is String
     query: String,
     filepath: String,
+    // determines whether search should be case-sensitive or not
     ignore_case: bool,
 }
 
+// 'impl' defines methods associated with struct Config
 impl Config {
+    // public function 'build', which takes a slice '&[]' of 'String' as its argument; 
     pub fn build(args: &[String]) -> Result<Config, &'static str> {
         if args.len() < 3 {
             return Err("Args: query, filepath. Not enough args");
